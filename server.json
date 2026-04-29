@@ -1,0 +1,90 @@
+{
+    "name": "com.truevaluerankings/tvr-mcp",
+    "version": "2.0.0",
+    "display_name": "True Value Rankings",
+    "description": "Cryptocurrency fundamental analysis tools via MCP. Provides educational scoring and valuation data to help users conduct their own research. Evaluates cryptocurrencies across 8 fundamental metrics rooted in Sound Value principles, producing TVR Scores, TVR Estimated Values, and Valuation Categories. All outputs are model-derived assessments for informational purposes only.",
+    "homepage": "https://truevaluerankings.com",
+    "contact": "info@truevaluerankings.com",
+    "provider": {
+        "name": "True Value Rankings LLC",
+        "url": "https://truevaluerankings.com"
+    },
+    "repository": "https://github.com/TrueValueRankings/tvr-mcp-server",
+    "remotes": [
+        {
+            "transport_type": "streamable-http",
+            "url": "https://truevaluerankings.com/mcp"
+        }
+    ],
+    "tools": [
+        {
+            "name": "get_tvr_score",
+            "description": "Returns the TVR Score, rank, valuation category, and strongest/weakest metric areas for a cryptocurrency"
+        },
+        {
+            "name": "get_tvr_estimated_value",
+            "description": "Returns the TVR Estimated Value (fair value estimate), fair value gap, and valuation category for a cryptocurrency"
+        },
+        {
+            "name": "compare_coins",
+            "description": "Compares 2-5 cryptocurrencies side-by-side on TVR Score, valuation, and fair value gap"
+        },
+        {
+            "name": "get_top_ranked",
+            "description": "Returns top N cryptocurrencies ranked by TVR Score, most undervalued, or most overvalued"
+        },
+        {
+            "name": "get_methodology",
+            "description": "Explains the 8 metrics, default weights, weight presets, and general scoring approach"
+        },
+        {
+            "name": "list_coins",
+            "description": "Lists all cryptocurrencies currently evaluated by TVR"
+        },
+        {
+            "name": "get_full_breakdown",
+            "description": "PREMIUM: Complete fundamental analysis with all 8 metric scores, explanations, and scoring factors"
+        },
+        {
+            "name": "get_historical_scores",
+            "description": "PREMIUM: Score change history with dates and reasons for each change"
+        },
+        {
+            "name": "get_custom_ranking",
+            "description": "PREMIUM: Recalculate the full ranking table using custom metric weights"
+        },
+        {
+            "name": "get_portfolio_analysis",
+            "description": "PREMIUM: Fundamental strength analysis of a multi-coin portfolio"
+        },
+        {
+            "name": "get_comparison_report",
+            "description": "PREMIUM: Detailed metric-by-metric comparison of 2-5 coins with all 8 scores"
+        }
+    ],
+    "authentication": {
+        "free": {
+            "type": "none",
+            "description": "All free tools are accessible with no authentication"
+        },
+        "premium": {
+            "type": "x402",
+            "description": "Premium tools support x402 micropayments in pathUSD on Tempo mainnet"
+        }
+    },
+    "rate_limits": {
+        "requests": 100,
+        "window_seconds": 900,
+        "scope": "ip"
+    },
+    "categories": [
+        "finance",
+        "cryptocurrency"
+    ],
+    "discovery": {
+        "mcp_json": "https://truevaluerankings.com/.well-known/mcp.json",
+        "agent_card": "https://truevaluerankings.com/.well-known/agent-card.json",
+        "openapi": "https://truevaluerankings.com/.well-known/openapi.json",
+        "llms_txt": "https://truevaluerankings.com/llms.txt"
+    }
+}
