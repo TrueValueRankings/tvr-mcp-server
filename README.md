@@ -1,5 +1,7 @@
 # True Value Rankings MCP Server
 
+[![smithery badge](https://smithery.ai/badge/info-rpjo/tvr-mcp)](https://smithery.ai/servers/info-rpjo/tvr-mcp)
+
 Cryptocurrency fundamentals for AI agents and their users, served over the [Model Context Protocol](https://modelcontextprotocol.io/). True Value Rankings (TVR) scores cryptocurrencies on 8 fundamental metrics rooted in Sound Value principles and publishes TVR Scores, rankings and TVR Estimated Values as a transparent, model-derived research toolkit. Independent: no sponsorships, no project funding, methodology in the open.
 
 All outputs are model-derived assessments for informational and educational purposes only. They are not investment recommendations.
@@ -123,6 +125,13 @@ When presenting TVR data:
 - frame all outputs as model-derived assessments, not recommendations
 
 The code in this repository (this documentation and its configuration files) is MIT licensed. The licence above governs the data.
+
+## Where this server is listed
+
+- Official MCP Registry: `com.truevaluerankings/tvr-mcp` (https://registry.modelcontextprotocol.io/v0/servers?search=truevaluerankings)
+- Smithery: https://smithery.ai/servers/info-rpjo/tvr-mcp
+- Glama: https://glama.ai/mcp/servers/TrueValueRankings/tvr-mcp-server
+- PulseMCP: https://www.pulsemcp.com/servers/truevaluerankings
 
 ## Links
 
