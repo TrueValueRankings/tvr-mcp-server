@@ -10,9 +10,12 @@ All outputs are model-derived assessments for informational and educational purp
 
 - **MCP endpoint:** `https://truevaluerankings.com/mcp`
 - **Transport:** Streamable HTTP (JSON-RPC 2.0 over POST)
-- **Authentication:** none for the free tools. Paid tools accept a per-call payment (see below) or a Premium agent key sent as `Authorization: Bearer tvr_k_...`.
+- **Authentication:** none. The free tools need no key or account; the paid tools are bought one call at a time (see below).
 - **MCP Registry name:** `com.truevaluerankings/tvr-mcp`
 - **Setup guide for developers and agents:** [truevaluerankings.com/developers](https://truevaluerankings.com/developers.html)
+- **Agent skill:** [`skills/true-value-rankings/SKILL.md`](skills/true-value-rankings/SKILL.md) tells a coding agent which tool answers which question, and how paying works.
+
+Claude (web and desktop app): Customize, then Connectors, then Add, then Add custom connector. Name: True Value Rankings. URL: `https://truevaluerankings.com/mcp`. Authentication: No sign in.
 
 Claude Desktop (`claude_desktop_config.json`):
 
@@ -39,8 +42,6 @@ Cursor (`.cursor/mcp.json`):
 }
 ```
 
-To use a Premium agent key, add the header `Authorization: Bearer tvr_k_...` (Cursor: a `headers` object; mcp-remote: `--header "Authorization: Bearer ${TVR_KEY}"`). Never put the key in a URL.
-
 ## Free tools (7)
 
 | Tool | What it returns |
@@ -51,9 +52,11 @@ To use a Premium agent key, add the header `Authorization: Bearer tvr_k_...` (Cu
 | `get_top_ranked` | Top coins by TVR Score, most undervalued or most overvalued |
 | `get_methodology` | The 8 metrics, default weights and the 4 weight presets |
 | `list_coins` | Every cryptocurrency currently evaluated |
-| `get_full_breakdown` | Complete fundamental analysis with all metrics and context |
+| `get_full_breakdown` | One coin with the scoring factors behind each metric score, the valuation note and its ranking context |
 
-## Paid tools (3), pay per call or use a Premium agent key
+Free answers from `compare_coins`, `get_top_ranked` and `get_full_breakdown` carry a `paid_option` field that names the paid call going further, with its price.
+
+## Paid tools (3), one call at a time
 
 | Tool | Price per call | What it returns |
 |------|----------------|-----------------|
@@ -68,7 +71,7 @@ Two payment rails are offered on the same 402 challenge, and MCP clients that su
 
 One payment buys one result; the same proof is re-delivered for 24 hours; a different input with the same proof is refused. Invalid input is refused before any payment is requested.
 
-**Premium agent key:** included with a TVR Premium subscription ($9.99 a month or $99.99 a year). Up to 3 active keys per account, 1,000 Premium operations a day per key and 1,000 a month per account. Free tools are never counted against the key and never refused. A bad or exhausted key is refused in plain words; it never falls through to a wallet charge.
+Personal agent keys for Premium subscribers are not being issued at the moment; the paid tools are sold one call at a time, and nothing is charged until a payment is presented.
 
 Paid bodies contain TVR model outputs only (scores, ranks, valuations, gaps); raw prices and market caps are never resold.
 
@@ -117,6 +120,8 @@ MCP: 100 requests per 15 minutes per IP. Paid HTTP endpoints: 60 per 15 minutes 
 ## Licence and attribution
 
 Attributed, non-commercial reuse of TVR scores and rankings is allowed; commercial use requires a Developer plan or written permission. Attribution means naming True Value Rankings and linking to truevaluerankings.com.
+
+The Developer plan (a commercial licence) is described at https://truevaluerankings.com/developers.html#developer-plan.
 
 When presenting TVR data:
 
